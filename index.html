@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Maker</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="header">CV Hazırlama Aracı</div>
+    <div class="innerBody">
+      <div class="inputs">
+        <div class="textinputs">
+          <div class="textinputsheader">
+            <h2>Metin İçerikleri</h2>
+            <hr />
+          </div>
+          <div class="inputBox">
+            <p class="inputBoxHeader">İsim Kutusu</p>
+            <div class="singleInput">
+              <label for="fullname">Ad Soyad: </label>
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                oninput="writeName()"
+              />
+            </div>
+            <br />
+            <div class="singleInput">
+              <label for="degree">Ünvan: </label>
+              <input
+                type="text"
+                id="degree"
+                name="degree"
+                oninput="writeDegree()"
+              />
+            </div>
+          </div>
+          <div class="inputBox">
+            <p class="inputBoxHeader">İletişim Bilgileri</p>
+            <div class="singleInput">
+              <label for="phone">Telefon: </label>
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                oninput="writePhone()"
+              />
+            </div>
+            <br />
+            <div class="singleInput">
+              <label for="email">Mail: </label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                oninput="writeEmail()"
+              />
+            </div>
+            <br />
+            <div class="singleInput">
+              <label for="webSite">Web: </label>
+              <input
+                type="text"
+                id="webSite"
+                name="webSite"
+                oninput="writeWebsite()"
+              />
+            </div>
+            <br />
+            <div class="singleInputTextArea">
+              <label for="address">Adres: </label>
+              <textarea
+                name="address"
+                id="address"
+                cols="21"
+                rows="5"
+                oninput="writeAddress()"
+              ></textarea>
+            </div>
+          </div>
+          <div class="inputBox">
+            <p class="inputBoxHeader">Eğitim Bilgileri</p>
+            <div class="singleInputTextArea">
+              <label for="schoolExplanation">Açıklama: </label>
+              <textarea
+                name="schoolExplanation"
+                id="schoolExplanation"
+                cols="21"
+                rows="5"
+                oninput="writeSchoolDescription()"
+              ></textarea>
+            </div>
+            <br />
+            <div class="singleInputSelectBox">
+              <label for="schoolNumber">Okul Sayısı: </label>
+              <select
+                name="schoolNumber"
+                id="schoolNumber"
+                onchange="chooseSchoolNumber()"
+              >
+                <option value="0" selected>Seçiniz</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <div class="afterSelectedNumber">
+              <div class="1SchoolInfo" id="1SchoolInfo" hidden>
+                <label for="firstSchoolName">1. Okul</label>
+                <input
+                  type="text"
+                  name="firstSchoolName"
+                  id="firstSchoolName"
+                  oninput="writeSchoolNameAndDescription()"
+                />
+                <input
+                  type="text"
+                  name="firstSchoolDescription"
+                  id="firstSchoolDescription"
+                  placeholder="Açıklama"
+                  oninput="writeSchoolNameAndDescription()"
+                />
+              </div>
+              <div class="2SchoolInfo" id="2SchoolInfo" hidden>
+                <label for="secondSchoolName">2. Okul</label>
+                <input
+                  type="text"
+                  name="secondSchoolName"
+                  id="secondSchoolName"
+                  oninput="writeSchoolNameAndDescription()"
+                />
+                <input
+                  type="text"
+                  name="secondSchoolDescription"
+                  id="secondSchoolDescription"
+                  placeholder="Açıklama"
+                  oninput="writeSchoolNameAndDescription()"
+                />
+              </div>
+              <div class="3SchoolInfo" id="3SchoolInfo" hidden>
+                <label for="thirdSchoolName">3. Okul</label>
+                <input
+                  type="text"
+                  name="thirdSchoolName"
+                  id="thirdSchoolName"
+                  oninput="writeSchoolNameAndDescription()"
+                />
+                <input
+                  type="text"
+                  name="thirdSchoolDescription"
+                  id="thirdSchoolDescription"
+                  placeholder="Açıklama"
+                  oninput="writeSchoolNameAndDescription()"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="inputBox">
+            <p class="inputBoxHeader">Yetenekler</p>
+            <div class="singleInputTextArea">
+              <label for="ability">Açıklama: </label>
+              <textarea
+                name="ability"
+                id="ability"
+                cols="21"
+                rows="5"
+                oninput="writeAbilityDescription()"
+              ></textarea>
+            </div>
+            <br />
+            <div class="singleInputSelectBox">
+              <label for="abilityNumber">Yetenek Sayısı: </label>
+              <select
+                name="abilityNumber"
+                id="abilityNumber"
+                onchange="chooseAbilityNumber()"
+              >
+                <option value="0" selected>Seçiniz</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <div class="afterSelectedNumber">
+              <div class="1AbilityInfo" id="1AbilityInfo" hidden>
+                <label for="firstAbilityName">1. Yetenek</label>
+                <input
+                  type="text"
+                  name="firstAbilityName"
+                  id="firstAbilityName"
+                  oninput="writeAbilityNameAndDescription()"
+                />
+                <input
+                  type="text"
+                  name="firstAbilityDescription"
+                  id="firstAbilityDescription"
+                  placeholder="Açıklama"
+                  oninput="writeAbilityNameAndDescription()"
+                />
+              </div>
+              <div class="2AbilityInfo" id="2AbilityInfo" hidden>
+                <label for="secondAbilityName">2. Yetenek</label>
+                <input
+                  type="text"
+                  name="secondAbilityName"
+                  id="secondAbilityName"
+                  oninput="writeAbilityNameAndDescription()"
+                />
+                <input
+                  type="text"
+                  name="secondAbilityDescription"
+                  id="secondAbilityDescription"
+                  placeholder="Açıklama"
+                  oninput="writeAbilityNameAndDescription()"
+                />
+              </div>
+              <div class="3AbilityInfo" id="3AbilityInfo" hidden>
+                <label for="thirdAbilityName">3. Yetenek</label>
+                <input
+                  type="text"
+                  name="thirdAbilityName"
+                  id="thirdAbilityName"
+                  oninput="writeAbilityNameAndDescription()"
+                />
+                <input
+                  type="text"
+                  name="thirdAbilityDescription"
+                  id="thirdAbilityDescription"
+                  placeholder="Açıklama"
+                  oninput="writeAbilityNameAndDescription()"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="inputBox">
+            <p class="inputBoxHeader">Hakkımda</p>
+            <div class="singleInputTextArea">
+              <label for="about">Açıklama: </label>
+              <textarea
+                name="about"
+                id="about"
+                cols="21"
+                rows="5"
+                oninput="writeAboutUs()"
+              ></textarea>
+            </div>
+          </div>
+          <div class="inputBox">
+            <p class="inputBoxHeader">İş Deneyimi</p>
+            <div class="singleInputTextArea">
+              <label for="jobExperience">Açıklama: </label>
+              <textarea
+                name="jobExperience"
+                id="jobExperience"
+                cols="21"
+                rows="5"
+                oninput="writeJobDescription()"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="viewinputs">
+          <div class="viewinputsheader">
+            <h2>Görünüş</h2>
+            <hr />
+          </div>
+          <div class="inputBox">
+            <p class="inputBoxHeader">Renkler</p>
+            <div class="singleInputSelectColor">
+              <label for="backgroundColor">Arkaplan Rengi: </label>
+              <input
+                type="color"
+                name="backgroundColor"
+                id="backgroundColor"
+                value="#BC082D"
+                onchange="selectBackgroundColor()"
+              />
+            </div>
+            <br />
+            <div class="singleInputSelectColor">
+              <label for="leftColumnColor">Sol Kolon Rengi: </label>
+              <input
+                type="color"
+                name="leftColumnColor"
+                id="leftColumnColor"
+                value="#92001A"
+                onchange="selectLeftColumnColor()"
+              />
+            </div>
+            <br />
+            <div class="singleInputSelectColor">
+              <label for="nameBoxColor">İsim Kutusu Rengi: </label>
+              <input
+                type="color"
+                name="nameBoxColor"
+                id="nameBoxColor"
+                value="#383838"
+                onchange="selectNameBoxColor()"
+              />
+            </div>
+            <br />
+            <div class="singleInputSelectColor">
+              <label for="nameBoxTextColor">İsim Kutusu Yazı Rengi: </label>
+              <input
+                type="color"
+                name="nameBoxTextColor"
+                id="nameBoxTextColor"
+                value="#FFFFFB"
+                onchange="selectNameBoxTextColor()"
+              />
+            </div>
+          </div>
+          <div class="inputBox">
+            <p class="inputBoxHeader">Yazı Tipi</p>
+            <div class="textTypeInputBox">
+              <label for="textType">Yazı Tipi: </label>
+              <select
+                name="textType"
+                id="textType"
+                onchange="selectTextType(this.value)"
+              >
+                <option value="0" selected>Seçiniz</option>
+                <option value="Times New Roman, serif">Times New Roman</option>
+                <option value="Courier New, monospace">Courier New</option>
+                <option value="Lucida Handwriting, cursive">
+                  Lucida Handwriting
+                </option>
+              </select>
+            </div>
+            <div class="afterSelectedAbilityNumber"></div>
+          </div>
+          <div class="inputBox">
+            <p class="inputBoxHeader">Fotoğraf</p>
+            <div class="photoTypeInputBox">
+              <label for="photoType">Fotoğraf Çerçevesi Şekli: </label>
+              <select
+                name="photoType"
+                id="photoType"
+                onchange="selectPhotoType(this.value)"
+              >
+                <option value="0" selected>Seçiniz</option>
+                <option value="Köşeli">Köşeli</option>
+                <option value="Oval">Oval</option>
+                <option value="Yuvarlak">Yuvarlak</option>
+              </select>
+            </div>
+            <div class="afterSelectedAbilityNumber"></div>
+          </div>
+          <div class="inputBox">
+            <p class="inputBoxHeader">Başlık Altı Çizgileri</p>
+            <div class="singleInputSelectColor">
+              <label for="underlineColor">Çizgi Rengi: </label>
+              <input
+                type="color"
+                name="underlineColor"
+                id="underlineColor"
+                value="##0E0E0E"
+                onchange="selectUnderlineColor(this.value)"
+              />
+            </div>
+            <br />
+            <div class="underlineTypeInputBox">
+              <label for="underlineType">Çizgi Şekli: </label>
+              <select
+                name="underlineType"
+                id="underlineType"
+                onchange="selectUnderlineStyle(this.value)"
+              >
+                <option value="0" selected>Seçiniz</option>
+                <option value="Noktalı">Noktalı</option>
+                <option value="Çizgili">Çizgili</option>
+                <option value="Düz">Düz</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cvoutput" id="cvoutput">
+        <div class="leftside" id="leftside">
+          <div class="profilePhoto" id="profilePhoto">
+            <div class="photo" id="photo">Fotoğraf</div>
+          </div>
+          <div class="infoBox">
+            <div class="innerBoxes">
+              <h2 class="innerBoxesHeader">İLETİŞİM</h2>
+              <hr class="underLine" />
+              <ul>
+                <li id="cvPhone">{Telefon}</li>
+                <li id="cvEmail">{Mail}</li>
+                <li id="cvWeb">{Web}</li>
+                <li id="cvAddress">{Adres}</li>
+              </ul>
+            </div>
+            <div class="innerBoxes">
+              <h2 class="innerBoxesHeader">EĞİTİM</h2>
+              <hr class="underLine" />
+              <div class="explains">
+                <p id="cvEducationInfo">{Açıklama}</p>
+                <div class="educationNames">
+                  <ul>
+                    <li class="1SchoolCv" id="1SchoolCv" hidden>
+                      <ul>
+                        <li id="1SchoolCvDescription"></li>
+                      </ul>
+                    </li>
+                    <li class="2SchoolCv" id="2SchoolCv" hidden>
+                      <ul>
+                        <li id="2SchoolDescription"></li>
+                      </ul>
+                    </li>
+                    <li class="3SchoolCv" id="3SchoolCv" hidden>
+                      <ul>
+                        <li id="3SchoolDescription"></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="innerBoxes">
+              <h2 class="innerBoxesHeader">YETENEKLER</h2>
+              <hr class="underLine" />
+              <div class="explains">
+                <p id="cvAbilityInfo">{Açıklama}</p>
+                <div class="abilityNames">
+                  <ul>
+                    <li class="1AbilityCv" id="1AbilityCv" hidden>
+                      <ul>
+                        <li id="1AbilityCvDescription"></li>
+                      </ul>
+                    </li>
+                    <li class="2AbilityCv" id="2AbilityCv" hidden>
+                      <ul>
+                        <li id="2AbilityDescription"></li>
+                      </ul>
+                    </li>
+                    <li class="3AbilityCv" id="3AbilityCv" hidden>
+                      <ul>
+                        <li id="3AbilityDescription"></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rightside">
+          <div class="nameBox" id="nameBox">
+            <h1 class="nameBoxText" id="cvName">{ Ad Soyad }</h1>
+            <hr class="nameBoxUnderline" />
+            <h2 class="nameBoxText" id="cvDegree">{ Unvan }</h2>
+          </div>
+          <div class="rightsideInfoBoxes">
+            <div class="rightsideInnerBoxes">
+              <h2 class="innerBoxesHeader">HAKKIMDA</h2>
+              <hr class="underLine" />
+              <div class="explains">
+                <p id="cvAboutInfo">{Açıklama}</p>
+              </div>
+            </div>
+            <div class="rightsideInnerBoxes">
+              <h2 class="innerBoxesHeader">İŞ DENEYİMİ</h2>
+              <hr class="underLine" />
+              <div class="explains">
+                <p id="cvJobInfo">{Açıklama}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
